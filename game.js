@@ -1,5 +1,5 @@
 window.memory_playing = false;
-function start() {
+function start_game() {
 	if(!window.memory_playing) {
 		window.user_turn = false;
 		window.memory_playing = true;
