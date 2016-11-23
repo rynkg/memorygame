@@ -23,7 +23,7 @@
 </div>
 <script type="text/javascript">
 window.memory_playing = false;
-var start = function() {
+function start() {
 	if(!window.memory_playing) {
 		window.user_turn = false;
 		window.memory_playing = true;
@@ -51,8 +51,8 @@ var start = function() {
 			play_seq(0);
 		}, 1800);
 	}
-};
-var populate = function(difficulty) {
+}
+function populate(difficulty) {
 	var container = document.getElementById("game");
 	var slot;
 	var row;
@@ -73,8 +73,8 @@ var populate = function(difficulty) {
 		}
 		container.appendChild(row);
 	}
-};
-var clicked = function(num) {
+}
+function clicked(num) {
 	if(!window.user_turn) {return 0;}
 	highlight(num);
 	if(num == window.sequence[window.user_progress]) {
@@ -87,8 +87,8 @@ var clicked = function(num) {
 		window.user_turn = false;
 		lose();
 	}
-};
-var win = function() {
+}
+function win() {
 	setTimeout(function() {
 		for(var i = 0; i < window.game_difficulty**2; i++) {
 			document.getElementById("slot"+i).setAttribute('class', 'slot won');
@@ -103,8 +103,8 @@ var win = function() {
 		add_seq();
 		play_seq(0);
 	}, 2200);
-};
-var lose = function() {
+}
+function lose() {
 	setTimeout(function() {
 		for(var i = 0; i < window.game_difficulty**2; i++) {
 			document.getElementById("slot"+i).setAttribute('class', 'slot lost');
@@ -125,19 +125,19 @@ var lose = function() {
 		document.getElementById("game").innerHTML = "";
 		window.memory_playing = false;
 	}, 2400);
-};
-var highlight = function(num) {
+}
+function highlight(num) {
 	var slot = document.getElementById("slot" + num);
 	slot.setAttribute('class', 'slot');
 	setTimeout(function() {
 		slot.setAttribute('class', 'slot unclicked');
 	}, 500);
 };
-var add_seq = function() {
+function add_seq() {
 	window.sequence.push(Math.floor((Math.random() * Math.pow(window.game_difficulty, 2))));
 	console.log(window.sequence);
 };
-var play_seq = function(index) {
+function play_seq(index) {
 	window.user_progress = 0;
 	highlight(window.sequence[index]);
 	if(index+1 < window.sequence.length) {
