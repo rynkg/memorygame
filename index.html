@@ -51,7 +51,7 @@ var start = function() {
 			play_seq(0);
 		}, 1800);
 	}
-}
+};
 var populate = function(difficulty) {
 	var container = document.getElementById("game");
 	var slot;
@@ -73,7 +73,7 @@ var populate = function(difficulty) {
 		}
 		container.appendChild(row);
 	}
-}
+};
 var clicked = function(num) {
 	if(!window.user_turn) {return 0;}
 	highlight(num);
@@ -87,7 +87,7 @@ var clicked = function(num) {
 		window.user_turn = false;
 		lose();
 	}
-}
+};
 var win = function() {
 	setTimeout(function() {
 		for(var i = 0; i < window.game_difficulty**2; i++) {
@@ -103,7 +103,7 @@ var win = function() {
 		add_seq();
 		play_seq(0);
 	}, 2200);
-}
+};
 var lose = function() {
 	setTimeout(function() {
 		for(var i = 0; i < window.game_difficulty**2; i++) {
@@ -125,18 +125,18 @@ var lose = function() {
 		document.getElementById("game").innerHTML = "";
 		window.memory_playing = false;
 	}, 2400);
-}
+};
 var highlight = function(num) {
 	var slot = document.getElementById("slot" + num);
 	slot.setAttribute('class', 'slot');
 	setTimeout(function() {
 		slot.setAttribute('class', 'slot unclicked');
 	}, 500);
-}
+};
 var add_seq = function() {
 	window.sequence.push(Math.floor((Math.random() * Math.pow(window.game_difficulty, 2))));
 	console.log(window.sequence);
-}
+};
 var play_seq = function(index) {
 	window.user_progress = 0;
 	highlight(window.sequence[index]);
@@ -149,7 +149,7 @@ var play_seq = function(index) {
 			window.user_turn = true;
 		}, 600);
 	}
-}
+};
 </script>
 </body>
 </html>
