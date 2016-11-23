@@ -14,12 +14,12 @@ function start_game() {
 		setTimeout(function() {
 			document.getElementById("main").style.display = "none";
 			document.getElementById("game").style.opacity = "1";
-			for(var i = 0; i < window.game_difficulty**2; i++) {
+			for(var i = 0; i < Math.pow(window.game_difficulty, 2); i++) {
 				document.getElementById("slot"+i).setAttribute('class', 'slot');
 			}
 		}, 400);
 		setTimeout(function() {
-			for(var i = 0; i < window.game_difficulty**2; i++) {
+			for(var i = 0; i < Math.pow(window.game_difficulty, 2); i++) {
 				document.getElementById("slot"+i).setAttribute('class', 'slot unclicked');
 			}
 		}, 1200);
@@ -66,12 +66,12 @@ function clicked(num) {
 }
 function win() {
 	setTimeout(function() {
-		for(var i = 0; i < window.game_difficulty**2; i++) {
+		for(var i = 0; i < Math.pow(window.game_difficulty, 2); i++) {
 			document.getElementById("slot"+i).setAttribute('class', 'slot won');
 		}
 	}, 800);
 	setTimeout(function() {
-		for(var i = 0; i < window.game_difficulty**2; i++) {
+		for(var i = 0; i < Math.pow(window.game_difficulty, 2); i++) {
 			document.getElementById("slot"+i).setAttribute('class', 'slot unclicked');
 		}
 	}, 1600);
@@ -82,7 +82,7 @@ function win() {
 }
 function lose() {
 	setTimeout(function() {
-		for(var i = 0; i < window.game_difficulty**2; i++) {
+		for(var i = 0; i < Math.pow(window.game_difficulty, 2); i++) {
 			document.getElementById("slot"+i).setAttribute('class', 'slot lost');
 		}
 	}, 800);
@@ -91,7 +91,7 @@ function lose() {
 		document.getElementById("main").style.display = "flex";
 		document.getElementById("last_score").innerHTML =
 			"you scored " + (window.sequence.length-3) + " on difficulty " + (window.game_difficulty-2);
-		for(var i = 0; i < window.game_difficulty**2; i++) {
+		for(var i = 0; i < Math.pow(window.game_difficulty, 2); i++) {
 			document.getElementById("slot"+i).setAttribute('class', 'slot unclicked');
 		}
 	}, 1600);
