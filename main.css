@@ -24,7 +24,6 @@ body {
 	max-height: 100%;
 	transition: opacity 0.2s ease-out;
 	padding: 5px;
-	padding-top: 0px;
 }
 #last_score {
 	font-size: 1em;
